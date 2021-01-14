@@ -1,6 +1,7 @@
 import React from "react";
 import LazyImage from "../lazy-image/LazyImage";
 import { observer } from "mobx-react";
+import { Picture } from "../../store/ui-stores/SearchPageStore";
 
 const styles = {
   card: {
@@ -8,7 +9,7 @@ const styles = {
   },
 };
 
-const ImageCard = observer(({ picture }) => (
+const ImageCard: React.FC<{ picture: Picture }> = ({ picture }) => (
   <div className="card mr-2 mb-2" style={styles.card}>
     <LazyImage
       src={picture.urls.thumb}
@@ -16,11 +17,11 @@ const ImageCard = observer(({ picture }) => (
       imageClass={"card-img-top"}
       onError={() => (picture.error = true)}
     />
-    <div className="card-body text-center" style={styles.cardBody}>
+    <div className="card-body text-center">
       <h5 className="card-title">{picture.user.name}</h5>
       <p className="card-text">{picture.description}</p>
     </div>
   </div>
-));
+);
 
-export default ImageCard;
+export default observer(ImageCard);

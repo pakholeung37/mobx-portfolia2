@@ -1,7 +1,14 @@
 import React from "react";
 import { observer } from "mobx-react";
 
-const Pagination = ({
+const Pagination: React.FC<{
+  totalPages: number;
+  currentPage: number;
+  onPrevClick: () => void;
+  onPageClick: (index: number) => void;
+  onNextClick: () => void;
+  isLoading: boolean;
+}> = ({
   totalPages,
   currentPage,
   onPrevClick,
@@ -14,7 +21,7 @@ const Pagination = ({
       className="prev-btn page-item"
       onClick={() => !isLoading && onPrevClick()}
     >
-      <a className="page-link">Previous</a>
+      <span className="page-link">Previous</span>
     </li>
   );
   const pageNumbers = [currentPage - 1, currentPage, currentPage + 1].map(
@@ -28,7 +35,7 @@ const Pagination = ({
           }
           className={`page-btn page-item ${index === currentPage && "active"}`}
         >
-          <a className="page-link">{index}</a>
+          <span className="page-link">{index}</span>
         </li>
       )
   );
@@ -37,7 +44,7 @@ const Pagination = ({
       className="next-btn page-item"
       onClick={() => !isLoading && onNextClick()}
     >
-      <a className="page-link">Next</a>
+      <span className="page-link">Next</span>
     </li>
   );
   return (

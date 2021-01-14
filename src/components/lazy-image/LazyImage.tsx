@@ -2,7 +2,7 @@ import React from "react";
 import LazyLoad from "react-lazyload";
 import { observer } from "mobx-react";
 
-const ImagePlaceholder = ({ children }) => (
+const ImagePlaceholder: React.FC = ({ children }) => (
   <div
     className="d-flex bg-dark justify-content-center align-items-center"
     style={{ height: 300 }}
@@ -11,7 +11,12 @@ const ImagePlaceholder = ({ children }) => (
   </div>
 );
 
-const LazyImage = ({ src, imageClass, picture, onError }) =>
+const LazyImage: React.FC<{
+  src: string;
+  imageClass: string;
+  picture: any;
+  onError: () => void;
+}> = ({ src, imageClass, picture, onError }) =>
   picture.error ? (
     <ImagePlaceholder>
       <h1 className="text-light">it broke ;(</h1>

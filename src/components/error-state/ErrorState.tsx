@@ -2,7 +2,7 @@ import React from "react";
 import image from "./error.png";
 import { observer } from "mobx-react";
 
-const ErrorState = ({ errors }) => (
+const ErrorState: React.FC<{ errors: string[] }> = ({ errors }) => (
   <div className="d-flex flex-column">
     <img alt="" src={image} className="img-responsive align-self-center" />
     <h4 className="text-center mt-5 text-danger">Something went wrong</h4>

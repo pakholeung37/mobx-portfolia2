@@ -1,10 +1,12 @@
-import { inject, observer } from "mobx-react";
 import React from "react";
+import { inject, observer } from "mobx-react";
 import Pagination from "../../components/pagination";
 import SearchBar from "../../components/search-bar";
 import EmptyState from "../../components/empty-state";
 import ErrorState from "../../components/error-state";
 import ImageCard from "../../components/image-card";
+import { Picture } from "../../store/ui-stores/SearchPageStore";
+import RootStore from "../../store/RootStore";
 
 const styles = {
   searchBarContainer: {
@@ -22,10 +24,10 @@ const emptyState = (
   />
 );
 
-const SearchPages = ({ searchPageStore }) => {
+const SearchPages = ({ searchPageStore }: RootStore) => {
   const errorState = <ErrorState errors={searchPageStore.errors} />;
 
-  const imageCard = (picture) => (
+  const imageCard = (picture: Picture) => (
     <ImageCard picture={picture} key={picture.id} />
   );
   return (
@@ -34,7 +36,7 @@ const SearchPages = ({ searchPageStore }) => {
         <div style={styles.searchBarContainer}>
           <SearchBar
             query={searchPageStore.search}
-            onChange={(event) =>
+            onChange={(event: any) =>
               searchPageStore.setSearchQuery(event.target.value)
             }
             onSearch={() => searchPageStore.loadPictures()}

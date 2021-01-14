@@ -1,7 +1,12 @@
 import React from "react";
 import { observer } from "mobx-react";
 
-const SearchBar = ({ onSearch, onChange, isLoading, query }) => (
+const SearchBar: React.FC<{
+  onSearch: () => void;
+  onChange: (e: any) => void;
+  isLoading: boolean;
+  query: string;
+}> = ({ onSearch, onChange, isLoading, query }) => (
   <div className="input-group mb-3">
     <input
       type="text"
