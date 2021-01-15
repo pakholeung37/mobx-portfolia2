@@ -1,6 +1,6 @@
 import React from "react";
 import image from "./error.png";
-import { observer } from "mobx-react";
+import { observer } from "mobx-react-lite";
 
 const ErrorState: React.FC<{ errors: string[] }> = ({ errors }) => (
   <div className="d-flex flex-column">

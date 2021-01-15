@@ -17,7 +17,7 @@ export default class SearchPageStore {
   rootStore: RootStore;
   transportLayer: ReturnType<typeof UnsplashClient>;
   localStorageClient: ReturnType<typeof LocalStorageClient>;
-  listPictures: () => any[];
+  listPictures: () => Picture[];
 
   @observable
   isLoading: boolean = false;

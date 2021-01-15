@@ -1,5 +1,5 @@
 import React from "react";
-import { inject, observer } from "mobx-react";
+import { observer } from "mobx-react-lite";
 import Pagination from "../../components/pagination";
 import SearchBar from "../../components/search-bar";
 import EmptyState from "../../components/empty-state";
@@ -7,6 +7,7 @@ import ErrorState from "../../components/error-state";
 import ImageCard from "../../components/image-card";
 import { Picture } from "../../store/ui-stores/SearchPageStore";
 import RootStore from "../../store/RootStore";
+import { useStore } from "../../store";
 
 const styles = {
   searchBarContainer: {
@@ -24,7 +25,8 @@ const emptyState = (
   />
 );
 
-const SearchPages = ({ searchPageStore }: RootStore) => {
+const SearchPages: React.FC<RootStore> = () => {
+  const { searchPageStore } = useStore();
   const errorState = <ErrorState errors={searchPageStore.errors} />;
 
   const imageCard = (picture: Picture) => (
@@ -69,4 +71,4 @@ const SearchPages = ({ searchPageStore }: RootStore) => {
     </div>
   );
 };
-export default inject("searchPageStore")(observer(SearchPages));
+export default observer(SearchPages);

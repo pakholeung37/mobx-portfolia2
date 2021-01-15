@@ -1,6 +1,6 @@
 import React from "react";
 import LazyImage from "../lazy-image/LazyImage";
-import { observer } from "mobx-react";
+import { observer } from "mobx-react-lite";
 import { Picture } from "../../store/ui-stores/SearchPageStore";
 
 const styles = {

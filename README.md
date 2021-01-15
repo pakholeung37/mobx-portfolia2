@@ -7,5 +7,5 @@ Porfolia is a great repo to study mobx. But since now mobx has update to v6, it'
 
 - [x] update to react 17, mobx 6
 - [x] rewrite in typescript
-- [ ] mobx-react -> mobx-react-lite
+- [x] mobx-react -> mobx-react-lite
 - [ ] best pratice of react hooks

@@ -1,6 +1,6 @@
 import React from "react";
 import LazyLoad from "react-lazyload";
-import { observer } from "mobx-react";
+import { observer } from "mobx-react-lite";
 
 const ImagePlaceholder: React.FC = ({ children }) => (
   <div
