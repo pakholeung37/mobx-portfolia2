@@ -71,7 +71,6 @@ export default class SearchPageStore {
           this.totalPages = total_pages;
           this.errors = [];
           this.isLoading = false;
-          console.log(total_pages, this.totalPages);
         }
       ),
       action(({ errors }: { errors: string[] }) => {
