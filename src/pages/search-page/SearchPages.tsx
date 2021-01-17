@@ -7,7 +7,7 @@ import ErrorState from "../../components/error-state";
 import ImageCard from "../../components/image-card";
 import { Picture } from "../../store/ui-stores/SearchPageStore";
 import RootStore from "../../store/RootStore";
-import { useStore } from "../../store";
+import { searchPageStore } from "../../store";
 
 const styles = {
   searchBarContainer: {
@@ -26,7 +26,6 @@ const emptyState = (
 );
 
 const SearchPages: React.FC<RootStore> = () => {
-  const { searchPageStore } = useStore();
   const errorState = <ErrorState errors={searchPageStore.errors} />;
 
   const imageCard = (picture: Picture) => (
